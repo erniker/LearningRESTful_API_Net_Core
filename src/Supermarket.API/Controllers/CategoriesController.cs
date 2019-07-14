@@ -12,7 +12,7 @@ namespace Supermarket.API.Controllers
         private readonly ICategoryService _categoryService;
         public CategoriesController(ICategoryService categoryService)
         {
-            _categoryService = categoryService;   
+            _categoryService = categoryService;
         }
 
         [HttpGet]
@@ -20,6 +20,13 @@ namespace Supermarket.API.Controllers
         {
             var categories = await _categoryService.ListAsync();
             return categories;
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> PostAsync([FromBody] SaveCategoryResource resource)
+
+        {
+
         }
     }
 }
