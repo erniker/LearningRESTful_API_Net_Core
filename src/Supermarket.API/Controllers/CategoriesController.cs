@@ -7,6 +7,7 @@ using Supermarket.API.Domain.Services;
 using Supermarket.API.Resources;
 using Supermarket.API.Extensions;
 
+
 namespace Supermarket.API.Controllers
 {
     [Route("/api/[controller]")]
@@ -29,7 +30,6 @@ namespace Supermarket.API.Controllers
 
             return resources;
         }
-
 
         [HttpPost]
         public async Task<IActionResult> PostAsync([FromBody] SaveCategoryResource resource)

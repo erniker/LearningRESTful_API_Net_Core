@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -21,11 +22,14 @@ namespace Supermarket.API
             Configuration = configuration;
         }
 
+        [System.Obsolete]
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-
-            services.AddDbContext<AppDbContext>(options => {
+            
+            services.AddAutoMapper();
+            services.AddDbContext<AppDbContext>(options =>
+            {
                 options.UseInMemoryDatabase("supermarket-api-in-memory");
             });
 
@@ -45,7 +49,7 @@ namespace Supermarket.API
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-
+            
             app.UseHttpsRedirection();
             app.UseMvc();
         }
