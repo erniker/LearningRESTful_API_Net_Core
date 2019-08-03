@@ -21,7 +21,7 @@ namespace Supermarket.API.Persistence.Repositories
         {
             await _context.Categories.AddAsync(category);
         }
-        
+
         public async Task<Category> FindByIdAsync(int id)
         {
             return await _context.Categories.FindAsync(id);
@@ -32,5 +32,9 @@ namespace Supermarket.API.Persistence.Repositories
             _context.Categories.Update(category);
         }
 
+        public void Remove(Category category)
+        {
+            _context.Categories.Remove(category);
+        }
     }
 }
