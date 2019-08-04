@@ -26,13 +26,29 @@ namespace Supermarket.API
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
+<<<<<<< HEAD
             services.AddDbContext<AppDbContext>(options => {
+=======
+            services.AddAutoMapper();
+            services.AddDbContext<AppDbContext>(options =>
+            {
+>>>>>>> Develop
                 options.UseInMemoryDatabase("supermarket-api-in-memory");
             });
 
             services.AddScoped<ICategoryRepository, CategoryRepository>();
+<<<<<<< HEAD
             services.AddScoped<ICategoryService, CategoryService>();
             services.AddAutoMapper();
+=======
+            services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+
+
+            services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<IProductService, ProductService>();
+>>>>>>> Develop
         }
 
 
